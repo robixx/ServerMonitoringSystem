@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="OpenSysMonitor.API/OpenSysMonitor.API.csproj" />
+  <Project Path="SysMonitor.Application/SysMonitor.Application.csproj" Id="75ddb5ad-1c14-4630-b0e7-bc1df22eb844" />
+  <Project Path="SysMonitor.Domain/SysMonitor.Domain.csproj" Id="880bbd3d-d26b-455d-8757-ddf85653785d" />
+  <Project Path="SysMonitor.Infrastructure/SysMonitor.Infrastructure.csproj" Id="cec4be4f-7d4e-4e3c-b3da-f652790edeff" />
+</Solution>
