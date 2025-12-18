@@ -5,6 +5,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Scalar.AspNetCore;
 using SysMonitor.Infrastructure;
+using SysMonitor.Infrastructure.Services;
+using System.Net;
+using System.Security.Policy;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -49,6 +52,7 @@ builder.Services.AddCors(options =>
 // ------------------ OpenAPI (ASP.NET Core 10) ------------------
 builder.Services.AddOpenApi();
 builder.Services.InjectService();
+builder.Services.AddSignalR();
 var app = builder.Build();
 
 // ------------------ Middleware ------------------
@@ -68,5 +72,11 @@ app.UseAuthorization();
 app.MapControllers();
 app.MapOpenApi();              // /openapi/v1.json
 app.MapScalarApiReference();
+app.MapHub<SystemMonitorHub>("/systemMonitorHub");
+// Bind to LAN IP + HTTPS port
+var lanIP = "192.168.11.148";
+var httpsPort = 7149;
 
+app.Urls.Clear();
+app.Urls.Add($"https://{lanIP}:{httpsPort}");
 app.Run();

@@ -1,6 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿
+
+using Microsoft.Extensions.DependencyInjection;
 using SysMonitor.Application.IInterface;
 using SysMonitor.Infrastructure.Services;
+
 using System;
 using System.Collections.Generic;
 using System.Runtime;
@@ -14,7 +17,8 @@ namespace SysMonitor.Infrastructure
         {
             services.AddScoped<JwtConfig>();
             services.AddScoped<IAuth, AuthService>();
-           
+            services.AddSingleton<ISystemMonitorService, SystemMonitorService>();
+            services.AddHostedService<SystemMonitorBackgroundService>();
 
         }
     }

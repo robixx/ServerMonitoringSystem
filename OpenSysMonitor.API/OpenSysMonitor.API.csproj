@@ -7,8 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="TagHelper\**" />
+    <Compile Remove="Utility\**" />
+    <Content Remove="TagHelper\**" />
+    <Content Remove="Utility\**" />
+    <EmbeddedResource Remove="TagHelper\**" />
+    <EmbeddedResource Remove="Utility\**" />
+    <None Remove="TagHelper\**" />
+    <None Remove="Utility\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="10.0.0" />
     <PackageReference Include="Scalar.AspNetCore" Version="2.11.6" />
   </ItemGroup>
@@ -16,11 +28,6 @@
   <ItemGroup>
     <ProjectReference Include="..\SysMonitor.Application\SysMonitor.Application.csproj" />
     <ProjectReference Include="..\SysMonitor.Infrastructure\SysMonitor.Infrastructure.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="TagHelper\" />
-    <Folder Include="Utility\" />
   </ItemGroup>
 
 </Project>
